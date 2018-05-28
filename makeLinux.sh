@@ -41,6 +41,14 @@ for file in $files; do
     echo applying $cmd to linux/$file and write to linux/$file
     sed "$cmd" -i linux/$file
 
+    cmd='s/ltiRealFFT\.h/ltiFFT\.h/'
+    echo applying $cmd to $file and write to linux/$file
+    sed "$cmd" -i linux/$file
+
+    cmd='s/ltiRealInvFFT\.h/ltiIFFT\.h/'
+    echo applying $cmd to $file and write to linux/$file
+    sed "$cmd" -i linux/$file
+
     cmd='/gtkServer\ server;/d' #\n\s*server\.start\(\);/d'
     echo applying $cmd to linux/$file and write to linux/$file
     sed "$cmd" -i linux/$file
@@ -64,6 +72,14 @@ for file in $files; do
     cmd='s/getIntensity\((.*)\)/extractIntensity\(\1\)/'
     echo applying $cmd to linux/$file and write to linux/$file
     sed "$cmd" -i -E linux/$file
+
+    cmd='s/realFFT/fft/'
+    echo applying $cmd to linux/$file and write to linux/$file
+    sed "$cmd" -i linux/$file
+
+    cmd='s/realInvFFT/ifft/'
+    echo applying $cmd to linux/$file and write to linux/$file
+    sed "$cmd" -i linux/$file
 done
 	
 cd linux

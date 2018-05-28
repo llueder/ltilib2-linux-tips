@@ -20,7 +20,7 @@ Should you spot an error or have any suggestions, feel free to contact me or ope
 * make
 * (sudo make install)
 
-# Usage with RobotVision projects (based on [1])
+# Usage with RobotVision projects (based on [1] and extended)
 * some changes in the code have to be made
   * "gtk.h" => "<gtk/gtk.h>
   * "ltiViewer.h" => <ltiViewer2D.h> 
@@ -28,11 +28,15 @@ Should you spot an error or have any suggestions, feel free to contact me or ope
   * "ltiSplitImg.h" => <ltiSplitImageToHSI.h> 
   * "ltiGtkServer.h" => <ltiGuiServer.h> 
   * "ltiImage" => <ltiChannel8.h> (for channel32 also include ltiChannel32.h)
+  * "ltiRealFFT.h" => <ltiFFT.h>
+  * "ltiRealInvFFT.h" => <ltiIFFT.h>
   * remove `gtkServer server` and `server.start()`
   * loadBMP => ioImage
   * Viewer => Viewer2D ändern
   * `resize(rowSize,columnSize,0,false,true)` => `resize(rowSize,columnSize,0, lti::Init)`
   * `splitter.getIntensity(imt,src)` => `extractIntensity(img,src)`
+  * `realFFT` => `fft`
+  * `realInvFFT` => `ifft`
 * an easy way to compile the project is to use ltilib's example makefile (examples/template/Makefile)
   * I changed the `LTIBASE` variable to the installation directory
   * I changed the `LTICMD` variable to lti-config
