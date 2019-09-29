@@ -1,26 +1,28 @@
-# ltilib2-linux-tips
-Installation and usage information for ltilib2 (based on my experience at HAW Hamburg)
+# ltilib2 linux tips
+Installation and usage information for ltilib2 (based on my experience at HAW Hamburg).
 
-# About this document
-In a course at HAW (Robot Vision), I needed to install the ltilib. Here are the steps I needed to get things to work on arch linux. Changes might be necessary for other distributions.
+ltilib2 is a C++ image processing library used in the *Robot Vision* class at HAW Hamburg.
+I could use ltilib on arch linux only with changes to the library itself and the given code of the exercises.
 
-Should you spot an error or have any suggestions, feel free to contact me or open an issue.
+Should you spot an error or have any suggestions, feel free to contact me or open an issue/PR.
 
-# Prerequisites
+## Prerequisites
 * packages to build applications (gcc, base-devel, make...)
 * f2c (fortran stuff, available in the AUR
 * subversion
 
-# Installation
-* svn checkout https://svn.code.sf.net/p/ltilib/code/trunk/ltilib-2
-* cd ltilib-2/linux/
-* make -f Makefile.svn
-* ./configure
-* patch ../misc/lamath/clapack.h <PATH-TO-patch_ltilib_1.diff>
-* make
-* (sudo make install)
+## Installation
+```
+svn checkout https://svn.code.sf.net/p/ltilib/code/trunk/ltilib-2
+cd ltilib-2/linux/
+make -f Makefile.svn
+./configure
+patch ../misc/lamath/clapack.h <path-to-patch_ltilib_1.diff>
+make
+#(sudo make install)
+```
 
-# Usage with RobotVision projects (based on [1] and extended)
+## Usage with RobotVision projects (based on [1] and extended)
 * some changes in the code have to be made
   * "gtk.h" => "<gtk/gtk.h>
   * "ltiViewer.h" => <ltiViewer2D.h> 
@@ -45,7 +47,8 @@ Should you spot an error or have any suggestions, feel free to contact me or ope
 * to automate the changes, I wrote the script makeLinux.sh (which can be found in this repository). It
   * creates a subfolder 'linux'
   * performs the necessary changes to all specified files and writes the modified versions into the 'linux' folder
-  * builds the project.
+  * builds the project
+  * is not a particularly beautiful peace of code.
 * Now you've got your binary at linux/linux :)
 
 
@@ -53,4 +56,4 @@ Should you spot an error or have any suggestions, feel free to contact me or ope
 
 # Changelog
  * **18-05-09** Initial version
- * **19-09-29** perform modification of ltilib file as patch
+ * **19-09-29** Perform modification of ltilib file as patch. Changed formulations and formatting. Publication on github.com/llueder/lti2-linux-tips. v1.
