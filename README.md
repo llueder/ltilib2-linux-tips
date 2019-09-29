@@ -18,6 +18,7 @@ cd ltilib-2/linux/
 make -f Makefile.svn
 ./configure
 patch ../misc/lamath/clapack.h <path-to-patch_ltilib_1.diff>
+patch ../src/system/ltiSemaphore.h <path-to-patch_ltilib_2.diff>
 make
 #(sudo make install)
 ```
@@ -56,4 +57,4 @@ make
 
 # Changelog
  * **18-05-09** Initial version
- * **19-09-29** Perform modification of ltilib file as patch. Changed formulations and formatting. Publication on github.com/llueder/lti2-linux-tips. v1.
+ * **19-09-29** Perform modification of ltilib file as patch. Changed formulations and formatting. Publication on github.com/llueder/lti2-linux-tips. Second patch for semaphore limit. v1.
