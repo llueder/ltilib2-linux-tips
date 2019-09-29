@@ -16,7 +16,7 @@ Should you spot an error or have any suggestions, feel free to contact me or ope
 * cd ltilib-2/linux/
 * make -f Makefile.svn
 * ./configure
-* add `#define VOID void` to misc/lamath/clapack.h
+* patch ../misc/lamath/clapack.h <PATH-TO-patch_ltilib_1.diff>
 * make
 * (sudo make install)
 
@@ -53,3 +53,4 @@ Should you spot an error or have any suggestions, feel free to contact me or ope
 
 # Changelog
  * **18-05-09** Initial version
+ * **19-09-29** perform modification of ltilib file as patch
